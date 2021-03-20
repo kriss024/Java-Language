@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html lang="pl"><head> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"> <meta name="Author" content="Krzysztof Barteczko"> <meta name="GENERATOR" content="Mozilla/4.61 [en] (OS/2; U) [Netscape]"> <title>Krzysztof Barteczko, zadania Java</title></head>
+<body> <center><b>Zadania do wykonania</b></center>
+<p><b><a href="#Zadanie%201">Zadanie 1&nbsp; - konta (4 punkty)</a></b>
+</p><p><b><a href="#Zadanie%202">Zadanie 2 - pacjenci (4 punkty)</a></b>
+</p><p>
+<a href="#Zadanie_3._Odwracanie"><span style="font-weight: bold;">Zadanie
+3 - odwracanie (4 punkty)</span></a></p>
+<p>Uwaga: &nbsp;instrukcja w jaki sposób przygotowywać rozwiązania
+znajduje się tu:<br>
+Zob. <a href="http://www.users.pjwstk.edu.pl/%7Ekb/EclipseInstr/InstrEclipse.html">Jak&nbsp;
+przygotowywać rozwiązania zadań?
+</a></p><p></p>
+<hr width="100%"><br>
+<a name="Zadanie 1"></a><b>Zadanie 1&nbsp; -&nbsp;</b><b>Konta bankowe</b>
+<br><br>
+Napisać program, który symuluje operacje na kontach bankowych.<br>
+Konta są obiektami klasy Account. Każde konto ma aktualny stan
+(balance) i można:<br>
+<ul><li>wplacać pieniądze (metoda deposit())</li><li>wypłacać pieniądze
+(metoda withdraw())</li><li>przelewać na inne konto (metoda
+transfer(...)) </li><li>dodawać do stanu konta odsetki w skali
+rocznej(metoda addInterest()).</li></ul>
+Stopa oprocentowania jest wspólna dla wszystkich kont i ustalana za
+pomocą metody setInterestRate(...).<br>
+<br>Konta posiadają klienci banku (obiekty klasy BankCustomer). W roli
+klienta występuje osoba (obiekt klasy Person).<br>
+<br>Dostarczyć takich definicji w/w klas, aby poniższy program:<br>
+<pre>public class BankingTest {<br><br>  public static void main(String[] args) {<br><br>    Person janP = new Person("Jan"),<br>           alaP = new Person("Ala");<br><br>    BankCustomer jan = new BankCustomer(janP);<br>    BankCustomer ala = new BankCustomer(alaP);<br><br>    jan.getAccount().deposit(1000);<br>    ala.getAccount().deposit(2000);<br>    jan.getAccount().transfer(ala.getAccount(), 500);<br>    ala.getAccount().withdraw(1000);<br><br>    System.out.println(jan);<br>    System.out.println(ala);<br><br>    Account.setInterestRate(4.5);<br>    jan.getAccount().addInterest();<br>    ala.getAccount().addInterest();<br><br>    System.out.println(jan);<br>    System.out.println(ala);<br>  }<br>}&nbsp;</pre><br>
+wyprowadził następującą informację:<br>
+<br>Klient: Jan stan konta 500.0<br>
+Klient: Ala stan konta 1500.0<br>
+Klient: Jan stan konta 522.5<br>
+Klient: Ala stan konta 1567.5<br><br>Postać wydruku jest obowiązkowa.<br><br>Program
+powinien dobrze działać dla &nbsp;dowolnych wplat-wyplat. To znaczy, że
+trzeba się zabezpieczyć przed &nbsp;ich niedopuszcalnymi wartościami
+(np. ujemne wartosci lub też wypłaty przekraczające stan konta).
+Najprościej będzie ignorować niedopuszczalne operacje. <p>
+<span style="color: red; font-weight: bold;">Uwaga: utworzonej przez generator projektów klasy BankingTest nie wolno zmieniać.</span></p><hr width="100%">
+<br><a name="Zadanie 2"></a><span style="font-weight: bold;">Zadanie 2
+- Pacjenci</span><br><br>Zdefiniować klasy z poniższego programu:<br><br><pre>public class Test {<br><br>  public static void main(String[] args) {<br>    <br>    Pacjent[] pacjenci = { new ChoryNaGlowe("Janek"),<br>                           new ChoryNaNoge("Edzio"),<br>                           new ChoryNaDyspepsje("Marian")<br>                         };<br>    <br>    for (Pacjent p : pacjenci) {<br>      System.out.println("Pacjent:     " + p.nazwisko() + '\n' +<br>                         "Chory na:    " + p.choroba() + '\n' + <br>                         "Zastosowano: " + p.leczenie() +"\n\n" <br>                         );<br>    }<br><br>  }<br><br>}<br></pre>w
+taki sposób, aby otrzymać w wyniku następujący wydruk:<br><br><pre>Pacjent:&nbsp;&nbsp;&nbsp;&nbsp; Janek<br>Chory na:&nbsp;&nbsp;&nbsp; głowa<br>Zastosowano: aspiryna</pre><pre>Pacjent:&nbsp;&nbsp;&nbsp;&nbsp; Edzio<br>Chory na:&nbsp;&nbsp;&nbsp; noga<br>Zastosowano: gips</pre><pre>Pacjent:&nbsp;&nbsp;&nbsp;&nbsp; Marian<br>Chory na:&nbsp;&nbsp;&nbsp; dyspepsja<br>Zastosowano: węgiel</pre>Uwaga:
+metody choroba() i leczenie() muszą być <span style="font-weight: bold;">wywoływane polimorficznie</span>.<br><span style="color: rgb(249, 17, 52); font-weight: bold;">Uwaga: nazwy klas
+bez polskich znaków. Klasy z nazwami z&nbsp;polskimi znakaami nie będą
+sprawdzane.<br></span><span style="color: red; font-weight: bold;">Uwaga: utworzonej przez generator projektów klasy&nbsp;Test nie wolno zmieniać.</span><br><hr style="width: 100%; height: 2px;"><br><span style="font-weight: bold;"><a name="Zadanie_3._Odwracanie"></a>Zadanie
+3 - Odwracanie</span><br><br>
+Zdefiniować interfejs Reversible z jedną metodą <span style="font-style: italic; font-weight: bold;">Reversible reverse() </span>i
+zaimplementować ją w klasach ReversibleString i ReversibleDouble.<br>
+Metoda reverse dla Stringów odwraca napis, a dla liczb - odwraca
+liczbę (czyli z napisu kot robi tok a z liczby 3 robi 0.3333).<br>Metoda
+zwraca aktualną (odwróconą) wartość.<br>
+<br>Zapewnić by następujący program wykonał się prawidłowo i dał
+pokazane wyniki:<br>
+<br><pre><span style="color: red;"></span>      public class ReverseTest {<br>      <br>        public static void main(String[] args) {<br>        <br>              Reversible[] revers = new Reversible[] {<br>                  new ReversibleString("Kot"),<br>                  new ReversibleDouble(2),<br>                  new ReversibleDouble(3),<br>                  new ReversibleString("Pies"),<br>                  new ReversibleString("Ala ma kota i psa"),<br>                  new ReversibleDouble(10),<br>              };<br><br>              System.out.println("Normalne:");<br>              for (Reversible r : revers) {<br>                System.out.println(r);<br>              }<br><br>              for (Reversible r : revers) {<br>                r.reverse();<br>              }<br><br>              System.out.println("Odwrócone:");<br>              for (Reversible r : revers) {<br>                System.out.println(r);<br>              }<br><br>              System.out.println("Przywrócone i zmienione:");<br>              for (Reversible r : revers) {<br>                 <span style="color: rgb(0, 153, 0);">/*&lt;-  co tu trzeba napisać */</span><br>              }<br>            }<br>          }<br><br><span style="text-decoration: underline;">Wynik</span>:<br>Normalne:<br>Kot<br>2.0<br>3.0<br>Pies<br>Ala ma kota i psa<br>10.0<br>Odwrócone:<br>toK<br>0.5<br>0.3333333333333333<br>seiP<br>asp i atok am alA<br>0.1<br>Przywrócone i zmienione:<br>Tekst Kot<br>12.0<br>13.0<br>Tekst Pies<br>Tekst Ala ma kota i psa<br>20.0</pre>
+Uwaga: kod klasy ReverseTest może (i musi)&nbsp; być zmieniony tylko w
+miejscu zaznaczonym na zielono. Inne modyfikacje pliku nie są
+dopuszczalne i skutkują otrzymaniem zera punktów.<br><br><b></b></body></html>

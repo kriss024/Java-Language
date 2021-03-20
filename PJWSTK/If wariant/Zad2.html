@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<meta name="Author" content="Krzysztof Barteczko"> <meta name="GENERATOR" content="Mozilla/4.61 [en] (OS/2; U) [Netscape]"><title>Krzysztof Barteczko, zadania Java</title></head>
+<body><center><b>Zadania do wykonania</b></center>
+<p><b><a href="#Zadanie%201">Zadanie 1&nbsp; - wyszukiwanie w
+plikach&nbsp; (max. 6 punktów)</a></b>
+</p><p><b><a href="#Zadanie%202">Zadanie 2 - uruchamianie i
+zatrzymywanie wątków&nbsp; (max. 2 punkty)</a></b></p>
+<p><b><a href="#Zadanie_3">Zadanie 3 - towary&nbsp; (max. 8 punktów)<br>
+</a></b>
+</p><p>
+</p><p></p><hr width="100%">
+<br><a name="Zadanie 1"></a><b>Zadanie 1 <br>
+<br><br>
+</b>Napisać program, który wczytuje<b>&nbsp;</b>plik o nazwie
+"Test.java" z kodem źródłowym Javy (poprawnym, czyli kompilującym się bez błędów) i wyszukuje w nim instrukcje
+<span style="font-weight: bold; font-style: italic;">if</span>
+&nbsp;oraz&nbsp; napisy "wariant". Wyniki dzialania programu w postaci:<br><br>Liczba
+instrukcji if: n<br>Liczba napisow wariant: m<br><br>należy wypisać na konsoli.<br><br>Obowiązkowa klasa Main, służąca do testowania programu winna mieć następującą postać:<br><pre>public class Main {<br>  <br>  public static void main(String ... args) throws Exception  {<br>    Finder finder = new Finder("../Test.java");<br>    int nif = finder.getIfCount();<br>    int nwar = finder.getStringCount("wariant");<br>    System.out.println("Liczba instrukcji if: " + nif);<br>    System.out.println("Liczba napisow wariant: " + nwar);<br>  }<br>  <br>}</pre><br>Uwagi:
+<br><ol><li>Wszystkie klasy w programiw winny być publiczne (i w oddzielnych plikach)</li><li>Klasy Main (utworzonej przez generator projektów) nie wolno w żaden sposób modyfikować</li><li>Plik
+winien znajdowaać się w nadkatalogu porjektu (czyli w ktalogu workspace)</li><li>Plik tworzymy sobie sami .</li><li>Proszę nie
+dołączać pliku do projektu.</li><li>Forma wydruku na konsoli &nbsp;jest
+obowiązkowa.</li></ol><span style="color: red; font-weight: bold;">Za niespełnienie tych warunków nie będą przyznawane
+punkty.</span><br><br>Pomoc:<br>instrukcja
+if ma swoje wymagania składniowe (ale zakładamy, że program jest
+poprawny). Nie jest instrukcją if coś co tak wygląda, ale jest
+umieszczone w komentarzu lub w literale napisowym.<hr width="100%">
+<br><a name="Zadanie 2"></a><b>Zadanie 2<br>
+<br></b>Napisać program, który uruchamia w trzech wątkach ten sam
+kod. Pierwszy wątek będzie wypisywał literę A co 3 sek, drugi B - co 4
+sek, trzeci C - co 5 sek. Zapewnić możliwość zakończenia działania
+wszystkich wątków z dialogu JOptionPane.showConfirmDialog(null, "Czy
+zakończyć pracę?");<b><br>
+</b><br><hr size="2" width="100%"><br>
+<br><b><a name="Zadanie_3"></a>
+Zadanie 3</b><br>
+<br><p>Kod, działający w wątku A&nbsp;czyta&nbsp;z pliku ../Towary.txt informacje o towarach w postaci:</p><p>id_towaru
+waga&nbsp;</p><p>tworzy
+obiekty klasy Towar, zawierające przeczytane informacje oraz wyprowadza
+na konsolę informacje o liczbie utworzonych &nbsp;obiektów. Informacja
+ma być wyprowadzana co 200 obiektów w postaci:</p><p>utworzono 200
+obiektów<br>utworzono 400 obiektów<br>utworzono 600 obiektów<br>itd.</p><p></p><p>Kod
+działający <span style="font-weight: bold;">równolegle</span>
+w innym wątku (B) sięga po te obiekty, sumuje wagę&nbsp; towarów i
+&nbsp;wyprowadza na konsolę informację o przeprowadzonym sumowaniu co
+100 obiektów np.:<br>policzono wage 100 towarów<br>policzono wage 200
+towarów<br>policzono wage 300 towarów<br>itd.<br>Na końcu podaje
+sumaryczną wagę wszystkich towarów.</p>
+<p>Uwagi:&nbsp;</p><ol><li>Plik powinien zawierać co najmniej 10 tys. opisów towarów
+(należy sobie go wygenerować programistycznie, ale <span style="font-weight: bold;">na boku, nie w tym programie</span>),&nbsp;
+nazwa pliku (wraz ze ścieżką) jest obowiązkowa&nbsp;, <span style="font-weight: bold;">proszę
+nie dołączać tego pliku do projektu</span>..</li><li>Zapewnić
+synchronizację i koordynację pracy obu wątków.</li><li>Forma wydruku
+na konsoli jest obowiązakowa</li><li>Wszystkie klasy w programie winny być publiczne (w różnych plikach)</li><li>Wykonanie programu winno zaczynać się w metodzide main()&nbsp; obowiązakowej klasy Main.</li><li>Plik winien znajdować się w nadkatalogu projektu (czyli w katalogu workspace'u)</li></ol><br><span style="color: red; font-weight: bold;">
+Za niespełnienie tych warunków nie będą przyznawane punkty.</span><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+</body></html>
